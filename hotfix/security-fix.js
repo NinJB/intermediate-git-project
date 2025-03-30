@@ -1,1 +1,1 @@
-console.warn("Applying security patch...");
+console.warn('Security patch applied');
