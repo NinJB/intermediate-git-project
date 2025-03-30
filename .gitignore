@@ -1,0 +1,4 @@
+# ignore all.txt files
+*.txtnode_modules/
+env
+submodules/
