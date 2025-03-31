@@ -1,14 +1,18 @@
-import { getRandomNumber } from './utils.js';
+/********************************************************************************************************/
 
 console.log('UI module loaded');
 
-function updateMessage() {
-    const messageElement = document.getElementById('message');
+/********************************************************************************************************/
+
+function updateMessage(message) {
+    const messageElement = document.getElementById('messageDisplay');
     if (messageElement) {
-        messageElement.textContent = `Random Number: ${getRandomNumber()}`;
-    } else {
-        console.error('Element with id "message" not found!');
+        messageElement.textContent = message;
     }
 }
 
+/********************************************************************************************************/
+
 export { updateMessage };
+
+/********************************************************************************************************/
