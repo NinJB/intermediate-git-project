@@ -1,8 +1,8 @@
-/********************************************************************************************************/
+/******************************************************************************************************/
 
-/* security-fix.js - makes sure that the number cannot be biased or its authenticity is reliable. */
+/* security-fix.js - ensures that the random number generation is secure and unbiased. */
 
-/********************************************************************************************************/
+/******************************************************************************************************/
 
 /**
  * Generates a cryptographically secure random number between min and max.
@@ -12,7 +12,7 @@
  * @returns {number} - A secure random number in the given range
  */
 
-/********************************************************************************************************/
+/******************************************************************************************************/
 
 function getSecureRandomNumber(min, max) {
     if (typeof min !== "number" || typeof max !== "number") {
@@ -29,11 +29,24 @@ function getSecureRandomNumber(min, max) {
     return Math.floor(randomNumber * (max - min) + min);
 }
 
-/********************************************************************************************************/
+/******************************************************************************************************/
 
-/* Example usage */
-console.log(getSecureRandomNumber(1, 100)); // Secure number between 1 and 100
+/* Example usage connected with user input */
+document.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('actionButton');
+    button.addEventListener('click', () => {
+        const min = parseInt(document.getElementById('minValue').value, 10);
+        const max = parseInt(document.getElementById('maxValue').value, 10);
+
+        if (isNaN(min) || isNaN(max) || min >= max) {
+            console.error("Invalid input: Please enter a valid range.");
+            return;
+        }
+
+        console.log(`Generated Secure Number: ${getSecureRandomNumber(min, max)}`);
+    });
+});
 
 export { getSecureRandomNumber };
 
-/********************************************************************************************************/
+/******************************************************************************************************/
